@@ -16,7 +16,7 @@
         {
             //Actualizar
             titulo = "Actualizar Bodega";
-            <input type="hidden" asp-for="Id"/>
+            <input type="hidden" asp-for="Id" id="id"/>
         }
         <!-- Mostramos el titulo de la pagina -->
         <div class="col-12 border-bottom p-0">
@@ -27,7 +27,7 @@
         <div class="row mb-2 mt-2">
             <div class="form-group col-md-6">
                 <label>Nombre</label>
-                <input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre de la bodega"/>
+                <input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre de la bodega" id="nombre"/>
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
         </div>
@@ -70,4 +70,26 @@
 <!-- Configuramos por medio de un script al dom para que use los helper tags -->
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById('nombre').addEventListener('change', function () {
+            ValidarNombre();
+        });
+
+        function ValidarNombre() {
+            var url = '@Url.Content("~/")' + "Admin/Bodega/ValidarNombre";
+            var id = '#id';
+            var nombre = '#nombre';
+
+            $.getJSON(url,{id:$(id).val(),nombre:$(nombre).val()},function(data) {
+                $.each(data, function(key, value) {
+                    if(value {
+                        var nombre = document.getElementById("nombre");
+                        swal("ERROR","Este nombre ya Existe!","error");
+                        nombre.value = "";
+                    }
+                });
+            })
+        }
+    </script>
 }
