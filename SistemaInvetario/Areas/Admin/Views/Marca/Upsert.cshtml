@@ -72,7 +72,7 @@
     <partial name="_ValidationScriptsPartial" />
 
     <script>
-        document.getElementById('nombre').addEventListener('change', function () {
+        document.getElementById("nombre").addEventListener('change', function () {
             ValidarNombre();
         });
 
@@ -81,11 +81,11 @@
             var id = '#id';
             var nombre = '#nombre';
 
-            $.getJSON(url,{id:$(id).val(),nombre:$(nombre).val()},function(data) {
-                $.each(data, function(key, value) {
-                    if(value {
+            $.getJSON(url, { id: $(id).val(), nombre: $(nombre).val() }, function (data) {
+                $.each(data, function (key, value) {
+                    if (value) {
                         var nombre = document.getElementById("nombre");
-                        swal("ERROR","Este nombre ya Existe!","error");
+                        swal("E R R O R", "Este Nombre ya Existe", "error");
                         nombre.value = "";
                     }
                 });
