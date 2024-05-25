@@ -16,7 +16,7 @@ namespace SistemaInventario.Modelos
         public string Nombre { get; set; }
         [Required(ErrorMessage = "El Campo Descripción es Requerido")]
         [MaxLength(100, ErrorMessage = "La Descripción sólo se compone de 100 Caracteres como Máximo")]
-        public string? Descripcion { get; set; }
+        public string Descripcion { get; set; }
         [Required(ErrorMessage = "El Estado de la bodega es Requerido")]
         public bool Estado { get; set; }
     }
