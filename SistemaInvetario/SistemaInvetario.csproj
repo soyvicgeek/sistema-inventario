@@ -46,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Inventario\Views\Inventario\" />
     <Folder Include="wwwroot\imagenes\productos\" />
   </ItemGroup>
 
